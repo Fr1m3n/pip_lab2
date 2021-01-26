@@ -1,26 +1,34 @@
 package utils;
 
-import dao.Entry;
+import entities.Entry;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.ejb.Stateless;
 
-@ManagedBean(name = "entryChecker")
-@ApplicationScoped
+
+@Stateless
 public class EntryChecker {
 
     public boolean check(Entry entry) {
-        if (entry.getX() >= 0) {
-            if (entry.getY() >= 0) {
-                return check1(entry);
+        Entry newEntry = new Entry();
+        newEntry.setX(entry.getX());
+        newEntry.setY(entry.getY());
+        newEntry.setR(entry.getR());
+        if (newEntry.getR() < 0) {
+            newEntry.setX(-newEntry.getX());
+            newEntry.setY(-newEntry.getY());
+            newEntry.setR(-newEntry.getR());
+        }
+        if (newEntry.getX() >= 0) {
+            if (newEntry.getY() >= 0) {
+                return check1(newEntry);
             } else {
-                return check4(entry);
+                return check4(newEntry);
             }
         } else {
-            if (entry.getY() > 0) {
-                return check2(entry);
+            if (newEntry.getY() > 0) {
+                return check2(newEntry);
             } else {
-                return check3(entry);
+                return check3(newEntry);
             }
         }
     }

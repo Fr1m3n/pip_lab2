@@ -1,0 +1,9 @@
+.root {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+}
+
+.text {
+    margin: 10px;
+}

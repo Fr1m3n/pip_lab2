@@ -26,6 +26,8 @@ hs_err_pid*
 
 pip_lab2.iml
 
+node_modules/
+
 ### Maven template
 target/
 pom.xml.tag

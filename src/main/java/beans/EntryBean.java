@@ -1,28 +1,24 @@
 package beans;
 
-import dao.Entry;
-import dao.EntryStatus;
+import entities.Entry;
+import entities.attributes.EntryStatus;
 import lombok.Data;
 import repository.EntryRepository;
 import utils.EntryChecker;
 import utils.EntryFactory;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
+import javax.ejb.EJB;
 
 @Data
-@ManagedBean(name = "entry")
-@SessionScoped
 public class EntryBean {
 
-    @Inject
+    @EJB
     private EntryRepository entryRepository;
 
-    @Inject
+    @EJB
     private EntryFactory entryFactory;
 
-    @Inject
+    @EJB
     private EntryChecker entryChecker;
 
     private Double x = 0.0;

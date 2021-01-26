@@ -1,0 +1,25 @@
+.root {
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    -webkit-box-shadow: 0 30px 60px 0
+}
+
+.text {
+
+}
+
+.error {
+    color: red;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}

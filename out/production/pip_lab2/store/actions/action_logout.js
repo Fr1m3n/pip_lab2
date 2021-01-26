@@ -1,0 +1,3 @@
+const ACTION_LOGOUT = "ACTION_LOGOUT";
+
+export default ACTION_LOGOUT;

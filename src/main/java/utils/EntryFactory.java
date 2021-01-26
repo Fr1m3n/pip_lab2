@@ -1,13 +1,11 @@
 package utils;
 
 import beans.EntryBean;
-import dao.Entry;
+import entities.Entry;
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.ejb.Stateless;
 
-@ManagedBean(name = "entryFactory")
-@ApplicationScoped
+@Stateless
 public class EntryFactory {
 
     public Entry buildEntry(EntryBean bean) {

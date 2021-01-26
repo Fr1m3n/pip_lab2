@@ -1,0 +1,3 @@
+const ACTION_SET_ENTRIES = "ACTION_SET_ENTRIES";
+
+export default ACTION_SET_ENTRIES;

@@ -1,24 +1,18 @@
 package beans;
 
-import dao.Entry;
+import entities.Entry;
 import lombok.Data;
 import repository.EntryRepository;
-import repository.EntryRepositoryImpl;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-import javax.inject.Inject;
+import javax.ejb.EJB;
 import java.util.List;
 
-@ManagedBean(name = "entries")
-@ViewScoped
+
 @Data
 public class EntriesListBean {
 
-    @Inject
+    @EJB
     private EntryRepository entryRepository;
 
     private List<Entry> entries;
@@ -38,5 +32,9 @@ public class EntriesListBean {
     public List<Entry> getEntries() {
         loadEntries();
         return entries;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

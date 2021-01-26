@@ -1,0 +1,21 @@
+.table {
+
+    width: 95%;
+    margin-bottom: 20px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+
+}
+
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    background: #56baed;
+    border: 1px solid #dddddd;
+}
+
+.table td {
+    border: 1px solid #dddddd;
+    background-color: #56baed;
+    padding: 5px;
+}

@@ -1,19 +1,17 @@
 package repository;
 
-import dao.Entry;
+import entities.Entry;
+import entities.User;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
-import javax.faces.bean.ManagedBean;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Default
-@ManagedBean(name = "entry_repo", eager = true)
-@ApplicationScoped
+@Stateless(name = "entry_repo")
 public class EntryRepositoryImpl implements EntryRepository {
 
     @PersistenceContext(unitName = "Entry")
@@ -40,5 +38,12 @@ public class EntryRepositoryImpl implements EntryRepository {
         CriteriaQuery<Entry> query = cb.createQuery(Entry.class);
         query.select(query.from(Entry.class));
         return em.createQuery(query).getResultList();
+    }
+
+    @Override
+    public List<Entry> findAllByUser(User user) {
+        return em.createQuery("SELECT e FROM entities.Entry e WHERE e.user.id=?1")
+                .setParameter(1, user.getId())
+                .getResultList();
     }
 }
